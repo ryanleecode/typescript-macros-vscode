@@ -1,0 +1,51 @@
+{
+  "name": "typescript-macro-vscode",
+  "displayName": "Typescript Macros for VSCode",
+  "description": "Macros for Typescript VSCode Ext",
+  "version": "0.0.1",
+  "private": true,
+  "engines": {
+    "vscode": "^1.52.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ryanleecode/typescript-macros-vscode.git"
+  },
+  "publisher": "ryanleecode",
+  "contributes": {
+    "languages": [
+      {
+        "id": "typescript-macro",
+        "aliases": [
+          "Typescript Macro",
+          "typescript-macro"
+        ],
+        "extensions": [
+          ".tsm"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "typescript-macro",
+        "scopeName": "source.typescript-macro",
+        "path": "./syntaxes/typescript-macro.tmLanguage.json"
+      },
+      {
+        "injectTo": [
+          "source.ts",
+          "source.tsx"
+        ],
+        "scopeName": "inline.typescript-macro",
+        "path": "./syntaxes/typescript-macro-ts.tmLanguage.json",
+        "embeddedLanguages": {
+          "meta.embedded.block.typescript-macro": "typescript-macro"
+        }
+      }
+    ]
+  }
+}

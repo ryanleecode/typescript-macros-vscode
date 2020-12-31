@@ -1,0 +1,14 @@
+{
+  "name": "Typescript Macro",
+  "fileTypes": ["ts", "tsx"],
+  "injectionSelector": "L:source -string -comment",
+  "patterns": [
+    {
+      "contentName": "meta.embedded.block.typescript-macro",
+      "begin": "\\s*(?<=defineMacro)\\s*`",
+      "end": "`",
+      "patterns": [{ "include": "source.typescript-macro" }]
+    }
+  ],
+  "scopeName": "inline.typescript-macro"
+}

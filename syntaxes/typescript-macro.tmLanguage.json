@@ -1,0 +1,75 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Typescript Macro",
+  "patterns": [
+    {
+      "include": "#keywords"
+    },
+    {
+      "include": "#supportClass"
+    },
+    {
+      "include": "#entity"
+    },
+    {
+      "include": "#variable"
+    },
+    {
+      "include": "#strings"
+    }
+  ],
+  "repository": {
+    "keywords": {
+      "patterns": [
+        {
+          "name": "keyword.control.typescript-macro",
+          "match": "\\b(namespace)\\b"
+        }
+      ]
+    },
+    "supportClass": {
+      "patterns": [
+        {
+          "name": "support.class.builtin.typescript-macro",
+          "match": "(?x)(?<![_$[:alnum:]])(?:(?<=\\.\\.\\.)|(?<!\\.))(Array|ArrayBuffer|Atomics|BigInt|BigInt64Array|BigUint64Array|Boolean|DataView|Date|Float32Array\n  |Float64Array|Function|Generator|GeneratorFunction|Int8Array|Int16Array|Int32Array|Intl|Map|Number|Object|Proxy\n  |Reflect|RegExp|Set|SharedArrayBuffer|SIMD|String|Symbol|TypedArray\n  |Uint8Array|Uint16Array|Uint32Array|Uint8ClampedArray|WeakMap|WeakSet)\\b(?!\\$)"
+        },
+        {
+          "name": "support.class.error.typescript-macro",
+          "match": "(?<![_$[:alnum:]])(?:(?<=\\.\\.\\.)|(?<!\\.))((Eval|Internal|Range|Reference|Syntax|Type|URI)?Error)\\b(?!\\$)"
+        },
+        {
+          "name": "support.type.primitive.typescript-macro",
+          "match": "(?<![_$[:alnum:]])(?:(?<=\\.\\.\\.)|(?<!\\.))(string|number|bigint|boolean|symbol|any|void|never|unknown)(?![_$[:alnum:]])(?:(?=\\.\\.\\.)|(?!\\.))"
+        }
+      ]
+    },
+    "entity": {
+      "patterns": [
+        {
+          "name": "entity.name.class.typescript-macro",
+          "match": "[A-Z]\\w*"
+        }
+      ]
+    },
+    "variable": {
+      "patterns": [
+        {
+          "name": "variable.name.typescript-macro",
+          "match": "[a-z]\\w*"
+        }
+      ]
+    },
+    "strings": {
+      "name": "string.quoted.double.typescript-macro",
+      "begin": "\"",
+      "end": "\"",
+      "patterns": [
+        {
+          "name": "constant.character.escape.typescript-macro",
+          "match": "\\\\."
+        }
+      ]
+    }
+  },
+  "scopeName": "source.typescript-macro"
+}
